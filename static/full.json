@@ -1,0 +1,455 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi", "hi", "Hey", "hey", "How are you?", "Is anyone there?", "Hello", "Good day", "What's up?",
+                "Good morning", "Good afternoon", "Good evening", "Hola", "Namaste", "Vanakkam", "Greetings",
+                "Hello there", "Hi Dexter", "Hey Dexter", "Can you help me?", "Starting a chat", "What's going on?"
+            ],
+            "responses": [
+                "Welcome to our restaurant! How can I assist you today?",
+                "Hello! How may I help you with our menu?",
+                "Hi there! Ready to explore our delicious dishes?",
+                "Namaste! I'm Dexter, your guide to Sarovar South Spice. What can I do for you today?",
+                "Vanakkam! Welcome to Sarovar South Spice. How may I assist you with your dining experience?",
+                "Greetings from Sarovar South Spice! I'm here to make your dining experience memorable!"
+            ]
+        },
+        {
+            "tag": "book_table",
+            "patterns": [
+                "Book a table", "Can I book a table?", "I want to book a table", "Book a seat", "I want to book a seat",
+                "Can I book a seat?", "Reservation for tonight", "Need to make a reservation", "Table for two please",
+                "Can I get a table for four?", "I'd like to reserve a table", "Make a dining reservation",
+                "Book a table for tomorrow evening", "Is it possible to book for Friday night?",
+                "Table for a family of six", "Can I get a romantic table for two?", "Need a quiet table for business meeting",
+                "Book a table with a view", "Outdoor seating reservation", "Indoor seating reservation", "Is there a table for 2?"
+            ],
+            "responses": [
+                "Your table has been booked. Booking ID is: {{booking_id}}. For more details about your bookings, please visit our website.",
+                "Reservation confirmed! Your booking ID is {{booking_id}}. We look forward to serving you.",
+                "Table booked successfully. Reference ID: {{booking_id}}. See you soon at Sarovar South Spice!",
+                "Your reservation is confirmed. Please note your booking ID: {{booking_id}}. Please arrive 10 minutes before your scheduled time."
+            ]
+        },
+        {
+            "tag": "modify_booking",
+            "patterns": [
+                "Change my reservation", "Modify booking", "Need to reschedule", "Can I change my table time?",
+                "Move my reservation to later", "Change number of people in reservation", "Update my booking",
+                "Need to add more people to my reservation", "Can I switch from indoor to outdoor seating?",
+                "Need to cancel my reservation", "Booking ID change request", "Different table request"
+            ],
+            "responses": [
+                "I'd be happy to help modify your reservation. Please provide your booking ID and the changes you'd like to make.",
+                "Of course, we can update your booking. What's your booking ID and what would you like to change?",
+                "To modify your reservation, I'll need your booking ID and the details you want to update. Then I can process your request immediately."
+            ]
+        },
+        {
+            "tag": "menu",
+            "patterns": [
+                "I'd like to order something", "menu", "What's on the menu?", "What do you recommend?", "Could I get something to eat?",
+                "I'm hungry", "List of food items", "Hotel menu", "Show me the menu", "Food options", "What can I eat here?",
+                "What dishes do you serve", "Full menu please", "Digital menu", "Specials menu", "Seasonal menu", "Today's specials"
+            ],
+            "responses": [
+                "Sure! Here's our menu:\n- Idli\n- Dosa\n- Uttapam\n- Vada\n- Sambar\n- Rasam\n- Curry\n- Biryani\n- Paneer Tikka\n\nWould you like details about any specific dish?",
+                "Our signature menu features South Indian classics like Idli, Dosa, and Vada, along with regional curries, biryanis, and North Indian favorites. We also offer daily specials - would you like to hear about today's special?",
+                "Explore our diverse menu featuring traditional South Indian breakfast items, flavorful main courses, signature biryanis, and delectable desserts. What category interests you most?"
+            ]
+        },
+        {
+            "tag": "bye",
+            "patterns": [
+                "Cya", "Bye", "See you later", "Goodbye", "I am Leaving", "Have a good day", "Cya later", "I gotta go now",
+                "I gotta rush now", "Thanks, that's all", "That's all I needed", "Goodbye Dexter", "Ending chat",
+                "Thanks for your help", "Got to go", "Wrapping up", "That's it for now", "Until next time", "Catch you later",
+                "See you soon"
+            ],
+            "responses": [
+                "Thank you for dining with us at Sarovar South Spice! Have a wonderful day!",
+                "Goodbye! Hope to see you again soon at Sarovar South Spice.",
+                "Take care! Come back again for more South Indian delights at Sarovar South Spice!",
+                "It was a pleasure assisting you! We look forward to serving you delicious South Indian cuisine soon.",
+                "Thank you for choosing Sarovar South Spice! Have a flavorful day ahead."
+            ]
+        },
+        {
+            "tag": "hours",
+            "patterns": [
+                "When are you guys open?", "What are your hours?", "Hours of operation", "Hours", "What is the timing?",
+                "Closing time", "Opening time", "Weekend hours", "Holiday hours", "Lunch hours", "Dinner timing", "Do you close for lunch?",
+                "Late night hours", "Early bird hours", "Are you open now?", "Are you open on Sundays?", "Are you open on public holidays?"
+            ],
+            "responses": [
+                "We are open from 11am to 10pm every day to serve you the best of South Indian cuisine at Sarovar South Spice!",
+                "Sarovar South Spice welcomes you daily from 11am to 10pm, including weekends and most holidays.",
+                "Our kitchen serves continuously from 11am to 10pm. Last orders are accepted until 9:30pm.",
+                "We're open all week from 11am to 10pm. On special holidays, timing may vary, so please check our website for updates."
+            ]
+        },
+        {
+            "tag": "restaurant_age",
+            "patterns": [
+                "How old is the restaurant?", "When did you open?", "How long have you been in business?",
+                "When was Sarovar South Spice established?", "Founding date", "Restaurant history", "How many years in business?",
+                "When did you start?", "Opening date"
+            ],
+            "responses": [
+                "Our Sarovar South Spice restaurant is fresh and new, just like the flavors we serve!",
+                "Sarovar South Spice opened its doors in 2023, bringing authentic South Indian flavors to the community.",
+                "We're a relatively new establishment, focused on delivering traditional South Indian cuisine with modern hospitality."
+            ]
+        },
+        {
+            "tag": "chef_recommendation",
+            "patterns": [
+                "Chef's recommendation?", "Specialty dish?", "What's good today?", "Chef's choice", "Best items to try",
+                "Top dishes", "Must-try items", "Recommended combinations", "First-time visitor recommendations", "Chef's tasting menu"
+            ],
+            "responses": [
+                "Our chef recommends trying our signature Masala Dosa or the flavorful Chettinad Chicken Curry!",
+                "Today, our chef recommends starting with Rasam, followed by our Special Ghee Roast Dosa or Karaikudi Chicken, and finishing with traditional Filter Coffee.",
+                "For first-time visitors, our chef recommends our Sarovar Special Thali - a sampling of multiple dishes that showcases the diversity of South Indian cuisine."
+            ]
+        },
+        {
+            "tag": "contact",
+            "patterns": [
+                "Contact information", "Contact us", "How can I contact you?", "Can I get the contact details?",
+                "I wanna give some feedback", "How can I give some feedback?", "Phone number", "Email address",
+                "Contact form", "Reach out to management", "Talk to manager", "Customer service contact", "Direct line",
+                "Manager contact"
+            ],
+            "responses": [
+                "You can contact us at contact@sarovarsouthspice.com for any queries or feedback regarding Sarovar South Spice.",
+                "Reach us via phone at (123) 456-7890 or email us at contact@sarovarsouthspice.com. For immediate assistance, you can also use the contact form on our website.",
+                "For reservations, feedback, or inquiries, please call (123) 456-7890 or email contact@sarovarsouthspice.com. Our customer service team is available during business hours."
+            ]
+        },
+        {
+            "tag": "dietary_restrictions",
+            "patterns": [
+                "Do you have vegetarian options?", "Vegan food available?", "Gluten-free dishes?", "Allergy-friendly menu",
+                "I have a nut allergy", "Lactose intolerance options", "No onion no garlic dishes", "Keto-friendly options",
+                "Low calorie options", "Do you cater to food allergies?", "Dairy-free dishes", "Halal options available?",
+                "Organic ingredients", "Is your food peanut-free?", "Egg-free dishes", "Jain food options"
+            ],
+            "responses": [
+                "We offer a wide range of vegetarian and vegan options. We also accommodate allergies and dietary restrictions - please inform your server about specific requirements when ordering.",
+                "Yes, we have extensive vegetarian options and can modify many dishes to suit dietary needs like gluten-free, dairy-free, or nut-free requirements. Our kitchen takes special care with allergy concerns.",
+                "Our menu includes special markings for vegetarian, vegan, and gluten-free options. We're happy to discuss modifications for any dietary restrictions you may have."
+            ]
+        },
+        {
+            "tag": "takeaway",
+            "patterns": [
+                "Do you offer takeaway?", "Can I order food to go?", "Takeout options", "Food delivery available?", 
+                "Can I get my food packed?", "How to place a takeaway order", "Pickup service", "Delivery radius",
+                "Food packaging", "Order to go", "Take home food", "Bring food home", "Do you deliver?",
+                "How long for pickup?", "Is there a minimum order for delivery?"
+            ],
+            "responses": [
+                "Yes, we offer takeaway services! You can place your order through our website, by phone, or in person at the restaurant.",
+                "We provide both takeaway and delivery options. Delivery is available within a 5-mile radius, and our packaging keeps your food warm and fresh.",
+                "Our takeaway service is available during all business hours. Just call us at (123) 456-7890 or order online, and we'll have your food ready for pickup within 20-30 minutes."
+            ]
+        },
+        {
+            "tag": "payment_options",
+            "patterns": [
+                "What payment methods do you accept?", "Do you take credit cards?", "Cash only?", "Can I pay online?",
+                "Digital payment options", "UPI accepted?", "Contactless payment", "Do you accept debit cards?",
+                "Mobile wallet payment", "Payment apps accepted", "Advance payment for booking", "Billing options",
+                "Split bill possible?", "Do you charge service fee?"
+            ],
+            "responses": [
+                "We accept all major credit cards, debit cards, cash, and digital payment methods including UPI, Google Pay, and PayTM.",
+                "For your convenience, we offer multiple payment options including cards, cash, and digital wallets. We also provide split billing for group dining.",
+                "We accept various payment methods including cash, credit/debit cards, and all popular digital payment apps. Contactless payment is also available for your safety."
+            ]
+        },
+        {
+            "tag": "spice_level",
+            "patterns": [
+                "How spicy is the food?", "Can I adjust spice level?", "Is all South Indian food spicy?", "Non-spicy options",
+                "Mild dishes available", "Extra spicy possible?", "Spice tolerance", "Authentic spice level",
+                "Kid-friendly spice level", "Medium spicy options", "Spiciest dish on menu", "Spice customization"
+            ],
+            "responses": [
+                "Our dishes can be customized according to your spice preference - mild, medium, or hot. Just let us know your preference when ordering!",
+                "South Indian cuisine offers a range of flavors beyond just spiciness. We can adjust the heat level of most dishes to suit your taste, from mild to authentically spicy.",
+                "We're happy to customize the spice level of any dish to match your preference. We also have several naturally mild options that are perfect for those who prefer less heat."
+            ]
+        },
+        {
+            "tag": "parking",
+            "patterns": [
+                "Is parking available?", "Where can I park?", "Free parking?", "Valet parking service", "Parking space",
+                "Convenient parking", "Car park location", "Parking charges", "Nearest parking facility",
+                "How far is parking?", "Two-wheeler parking", "Accessibility parking"
+            ],
+            "responses": [
+                "We offer free parking for our patrons in the lot behind our restaurant. Valet service is available on weekends and holidays.",
+                "Parking is available directly behind our restaurant building. It's free for customers for up to 2 hours with validation.",
+                "We have a dedicated parking area for our guests. During peak hours, we also offer valet parking service for your convenience."
+            ]
+        },
+        {
+            "tag": "dish_description",
+            "patterns": [
+                "What is Dosa?", "Tell me about Idli", "What does Uttapam contain?", "What's in your Biryani?",
+                "Describe Vada", "What is Sambar made of?", "Ingredients in Rasam", "How is Chettinad curry prepared?",
+                "What is filter coffee?", "What's special about South Indian cuisine?", "What is in Thali?",
+                "Describe your Masala Dosa", "What is Appam?", "How do you make Pongal?"
+            ],
+            "responses": [
+                "Dosa is a crispy, thin pancake made from fermented rice and lentil batter. Our Masala Dosa comes filled with spiced potato filling and is served with sambar and chutney.",
+                "Idli are steamed, fluffy rice cakes made from fermented rice and lentil batter. They're light, healthy, and typically served with sambar and chutney as a breakfast item.",
+                "Sambar is a tangy, spiced lentil soup with vegetables, tamarind, and a special spice blend. It's a staple accompaniment to many South Indian dishes like idli, dosa, and rice."
+            ]
+        },
+        {
+            "tag": "catering",
+            "patterns": [
+                "Do you offer catering?", "Catering for events", "Private party options", "Food for corporate events",
+                "Can you cater my wedding?", "Birthday party catering", "Event space available?", "Group dining options",
+                "Large order for office", "Banquet facilities", "Outside catering services", "Party menu options",
+                "Special event packages", "Bulk order discounts"
+            ],
+            "responses": [
+                "Yes, we offer catering services for events of all sizes! Our team can create customized menus for corporate functions, weddings, parties, and more.",
+                "Our catering service provides authentic South Indian cuisine for your special events. We offer both delivery and full-service catering with staff. Please contact us at least 48 hours in advance.",
+                "We specialize in catering authentic South Indian flavors for events. We can accommodate dietary restrictions and customize the menu to suit your event's needs and budget."
+            ]
+        },
+        {
+            "tag": "location",
+            "patterns": [
+                "Where are you located?", "What's your address?", "How do I get to your restaurant?", "Directions to restaurant",
+                "Where is Sarovar South Spice?", "Nearest landmark", "Which area are you in?", "Map location",
+                "Public transport access", "Nearest metro station", "How far from city center?", "Branch locations"
+            ],
+            "responses": [
+                "Sarovar South Spice is located at 123 Flavor Street, Culinary District. We're near the Central Park and just a 5-minute walk from Metro Station.",
+                "Our restaurant is situated at 123 Flavor Street in the heart of the Culinary District. You can find us easily on Google Maps or follow signs for Central Park.",
+                "You can find us at 123 Flavor Street, just off Main Avenue. We're easily accessible by public transport, with Bus Stop #42 right outside and Central Metro Station just 500 meters away."
+            ]
+        },
+        {
+            "tag": "wifi",
+            "patterns": [
+                "Do you have WiFi?", "Is there free internet?", "WiFi password please", "Can I work from your restaurant?",
+                "Internet connectivity", "Is your WiFi fast?", "Public WiFi available?", "Network access for customers",
+                "Can I use laptop?", "Working space with food", "WiFi speed", "Internet for customers"
+            ],
+            "responses": [
+                "Yes, we offer complimentary WiFi to all our guests. Just ask your server for the password when you're seated.",
+                "We provide free high-speed WiFi for our customers. The password is available on your table tent card or you can ask any staff member.",
+                "Complimentary WiFi is available throughout our restaurant. Feel free to ask your server for the current password when you order."
+            ]
+        },
+        {
+            "tag": "waiting_time",
+            "patterns": [
+                "How long is the wait?", "Do I need to queue?", "Current waiting time", "How busy are you now?",
+                "Wait time for walk-ins", "Peak hour waiting", "Can I join waiting list?", "Estimated seating time",
+                "How crowded is the restaurant?", "Long queue now?", "Do you take waiting list remotely?",
+                "How to check wait times?"
+            ],
+            "responses": [
+                "Wait times vary depending on the day and time. On weekdays, the wait is typically 0-15 minutes, while weekends may have 20-40 minute waits during peak hours.",
+                "Our current wait time is approximately 15-20 minutes for walk-ins. If you'd like, we can add you to our waiting list and text you when your table is ready.",
+                "We experience the longest wait times on Friday and Saturday evenings between 7-9pm. For minimal waiting, we recommend visiting during weekday lunch hours or early dinners."
+            ]
+        },
+        {
+            "tag": "reviews",
+            "patterns": [
+                "What do people say about your restaurant?", "Customer reviews", "Ratings for your food", 
+                "Are you highly rated?", "Popular opinion of restaurant", "Online reviews", "Google rating",
+                "Restaurant ranking", "Critical acclaim", "Customer feedback", "Top-rated dishes according to reviews",
+                "What's your best reviewed item?"
+            ],
+            "responses": [
+                "We're proud to maintain a 4.7/5 rating across major platforms! Our Masala Dosa and Chettinad Chicken are particularly praised by reviewers.",
+                "Our customers especially love our authentic flavors and attentive service. We've been featured in Local Food Magazine's 'Top 10 South Indian Restaurants' list last year.",
+                "We value all customer feedback! Our recent reviews highlight our flavorful biryanis, friendly staff, and relaxing ambiance. We're currently rated 4.7 on Google and 4.8 on Zomato."
+            ]
+        },
+        {
+            "tag": "sustainability",
+            "patterns": [
+                "Are you eco-friendly?", "Sustainable practices", "Plastic use policy", "Recycling efforts",
+                "Food waste management", "Organic ingredients", "Local sourcing", "Environmental impact",
+                "Eco packaging", "Green initiatives", "Sustainable seafood", "Carbon footprint",
+                "Composting program", "Ethical sourcing"
+            ],
+            "responses": [
+                "Sustainability is important to us! We use biodegradable packaging, source ingredients locally when possible, and have implemented water and energy conservation measures.",
+                "We're committed to sustainability through several initiatives: biodegradable takeaway containers, digital receipts, food waste composting, and supporting local farmers.",
+                "Our restaurant practices responsible sourcing by working with local suppliers, using seasonal ingredients, minimizing food waste through careful inventory, and using eco-friendly packaging."
+            ]
+        },
+        {
+            "tag": "special_occasions",
+            "patterns": [
+                "Birthday celebration", "Anniversary dinner", "Special event accommodations", "Romantic dinner setup",
+                "Celebration arrangements", "Can you do something special for birthdays?", "Surprise arrangements",
+                "Cake cutting allowed?", "Private celebration area", "Special occasion discounts", "Milestone celebration",
+                "Valentine's day special", "Group celebration", "Special decorations available"
+            ],
+            "responses": [
+                "We'd be delighted to help make your special occasion memorable! We offer complimentary cake cutting, special decorations, and can arrange surprise elements upon request with 24 hours notice.",
+                "For special occasions like birthdays and anniversaries, we can arrange customized setups including decorations, special menus, and complimentary desserts. Please mention your celebration when booking.",
+                "We love celebrating with our guests! For special occasions, we offer a private dining area, custom cake arrangements, and special menu options. Please give us 24-48 hours notice so we can prepare accordingly."
+            ]
+        },
+        {
+            "tag": "kids_options",
+            "patterns": [
+                "Do you have a children's menu?", "Kid-friendly options", "Baby chair available?", "Food for toddlers",
+                "Child portions", "Activities for kids", "Family-friendly", "Baby changing facilities", "Kids eat free?",
+                "Mild food for children", "Do you welcome children?", "Play area for kids", "High chairs available?"
+            ],
+            "responses": [
+                "We're family-friendly! We offer kid-sized portions of mild dishes, high chairs, changing facilities, and a small play area to keep little ones entertained.",
+                "We welcome families with children! We provide high chairs, a special kids menu with mild flavors, and activity sheets to keep them engaged while you enjoy your meal.",
+                "For our young guests, we offer a special kids menu featuring milder versions of our dishes in child-friendly portions. We have high chairs, changing facilities, and coloring activities available."
+            ]
+        },
+        {
+            "tag": "cultural_events",
+            "patterns": [
+                "Do you host cultural events?", "Live music nights", "Cultural performances", "Special festival celebrations",
+                "Traditional dance shows", "Music at restaurant", "Entertainment options", "Weekend performances",
+                "Local artists", "Cultural nights", "Festival special events", "Traditional music"
+            ],
+            "responses": [
+                "We host cultural events every Saturday evening featuring traditional South Indian music and dance performances. Check our website or social media for the upcoming schedule!",
+                "We celebrate major Indian festivals with special menus and cultural performances. We also have live classical music every Friday and Saturday evening from 7-10pm.",
+                "Our restaurant features traditional South Indian cultural programs on weekends, including Carnatic music, Bharatanatyam dance, and special seasonal festival celebrations. Follow us on social media for our event calendar."
+            ]
+        },
+        {
+            "tag": "accessibility",
+            "patterns": [
+                "Wheelchair accessible?", "Accessibility features", "Disabled facilities", "Accessible entrance",
+                "Handicap parking", "Accessible restrooms", "Special assistance", "Wheelchair ramp",
+                "Accommodations for disabled", "Accessible seating", "Disability friendly", "Service animals allowed?"
+            ],
+            "responses": [
+                "Our restaurant is fully wheelchair accessible with ramp access, accessible restrooms, and designated parking spaces. Service animals are always welcome.",
+                "We're committed to being accessible to all guests. We have wheelchair ramps, accessible restrooms, and our staff is trained to provide assistance to guests with special needs.",
+                "Yes, our facility is fully accessible with wide doorways, ramps, accessible restrooms, and designated parking. We're happy to accommodate any additional accessibility needs - please let us know how we can help."
+            ]
+        },
+        {
+            "tag": "cooking_class",
+            "patterns": [
+                "Do you offer cooking classes?", "Learn to cook South Indian", "Cooking workshops", "Chef demonstrations",
+                "Culinary lessons", "Can I learn your recipes?", "Group cooking sessions", "Private cooking lessons",
+                "Cooking experiences", "Hands-on cooking", "Culinary workshop schedule", "Recipe sharing"
+            ],
+            "responses": [
+                "Yes, we offer monthly cooking classes where our chef teaches authentic South Indian cooking techniques! Check our website for the schedule and registration details.",
+                "Our popular cooking workshops happen every first Sunday of the month from 2-5pm. You'll learn to make classics like dosa, sambar, and chutneys from our master chefs.",
+                "We host both group and private cooking classes where you can learn the secrets of South Indian cuisine. Classes include all ingredients, recipes to take home, and a meal at the end. Booking is essential as spaces fill quickly!"
+            ]
+        },
+        {
+            "tag": "health_benefits",
+            "patterns": [
+                "Is South Indian food healthy?", "Nutritional information", "Health benefits of your food",
+                "Low-calorie options", "Healthy menu choices", "Nutritional value of dishes", "Diet-friendly options",
+                "Heart-healthy dishes", "Calorie count available?", "Good for health?", "Anti-inflammatory dishes",
+                "Ayurvedic properties"
+            ],
+            "responses": [
+                "Traditional South Indian cuisine offers many health benefits! Many dishes use fermentation (idli, dosa), which improves digestibility and nutrient absorption. Our foods are rich in proteins, complex carbohydrates, and essential nutrients.",
+                "South Indian cuisine is considered quite healthy, featuring steamed dishes (idli), fermented foods that support gut health, nutritious lentils, and a variety of vegetable preparations that retain nutrients.",
+                "Our menu features many health-conscious options. South Indian cuisine traditionally uses minimal oil, lots of vegetables and lentils, and spices like turmeric and black pepper that have proven health benefits."
+            ]
+        },
+        {
+            "tag": "about_chef",
+            "patterns": [
+                "Who is the chef?", "Tell me about your chef", "Chef's background", "Kitchen staff information",
+                "Head chef experience", "Chef's speciality", "Where is your chef from?", "Chef's training",
+                "Executive chef", "Meet the chef possible?", "Chef's philosophy", "Chef's culinary journey"
+            ],
+            "responses": [
+                "Our head chef, Rajesh Kumar, has over 20 years of experience specializing in authentic South Indian cuisine. He trained in Chennai and has worked in premium restaurants across India before joining us.",
+                "Chef Rajesh Kumar leads our kitchen team with his expertise in traditional South Indian cooking techniques. He's particularly known for his mastery of regional spice blends and authentic preparation methods.",
+                "Our culinary team is led by Chef Rajesh Kumar, who comes from a family of traditional South Indian cooks. His passion for preserving authentic flavors while adding creative touches defines our menu."
+            ]
+        },
+        {
+            "tag": "loyalty_program",
+            "patterns": [
+                "Do you have a loyalty program?", "Reward points system", "Customer loyalty benefits", "Regular customer perks",
+                "Membership program", "Frequent diner rewards", "Loyalty card", "Points per visit", "Loyalty app",
+                "Discount for regular customers", "Join rewards program", "VIP customer benefits"
+            ],
+            "responses": [
+                "Yes, we have a loyalty program! Earn points with every visit, receive birthday rewards, and enjoy exclusive member discounts. You can sign up for free at our restaurant or on our website.",
+                "Our Sarovar Rewards program offers 1 point for every $10 spent, special birthday treats, early access to events, and exclusive offers. Download our app or ask your server about enrollment.",
+                "Join our free loyalty program to earn rewards with every visit! Members enjoy special discounts, birthday rewards, advance notifications of special events, and seasonal offers exclusive to our loyal customers."
+            ]
+        },
+        {
+            "tag": "online_ordering",
+            "patterns": [
+                "Can I order online?", "Food delivery app", "Online delivery options", "Website ordering", "Mobile app for food",
+                "Order from home", "Digital menu ordering", "Takeaway app", "Online reservation system", "Pre-order food",
+                "Food ordering platforms", "Do you have an app?", "Order ahead option"
+            ],
+            "responses": [
+                "Yes! You can order online through our website or mobile app. We're also available on major food delivery platforms like Zomato, Swiggy, and UberEats.",
+                "Online ordering is available 24/7 through our website and mobile app, with exclusive app-only discounts. We usually deliver within 45 minutes, depending on your location.",
+                "Order from the comfort of your home through our website, mobile app, or popular delivery platforms. You can also place advance orders for pickup or delivery at your preferred time."
+            ]
+        },
+        {
+            "tag": "drink_options",
+            "patterns": [
+                "What drinks do you serve?", "Beverage menu", "Alcoholic drinks available?", "Traditional South Indian drinks",
+                "Cocktail options", "Wine selection", "Beer available?", "Non-alcoholic options", "Coffee and tea selection",
+                "Signature drinks", "Lassi varieties", "Fresh juices", "Do you serve alcohol?"
+            ],
+            "responses": [
+                "We offer a variety of traditional South Indian beverages like Filter Coffee, Masala Chai, fresh lime soda, mango lassi, and buttermilk. We also have a selection of beers, wines, and non-alcoholic options.",
+                "Our beverage menu includes authentic South Indian drinks like Filter Coffee and Badam Milk, along with fresh juices, lassis, and a curated selection of wines and beers that pair well with our cuisine.",
+                "Enjoy our signature South Indian drinks like traditional Filter Coffee, Rose Milk, or Nannari Sherbet. We also offer refreshing lassis, fresh fruit juices, and a selection of alcoholic beverages including craft beers and wines."
+            ]
+        },
+        {
+            "tag": "covid_safety",
+            "patterns": [
+                "COVID safety measures", "Health protocols", "Safety precautions", "Sanitization measures", "Staff vaccination",
+                "Mask policy", "Social distancing arrangements", "COVID safe dining", "Health and safety", "Outdoor dining option",
+                "Contactless options", "Temperature checks", "Sanitizers available"
+            ],
+            "responses": [
+                "Your safety is our priority! We maintain strict sanitization protocols, have spaced out seating, offer contactless payment options, and ensure all staff follow proper health guidelines.",
+                "We've implemented comprehensive safety measures including regular sanitization, staff health checks, spaced seating, and enhanced air filtration. Masks are required for staff and recommended for guests when not eating.",
+                "We follow all recommended safety protocols including regular sanitization, contactless ordering options, properly spaced tables, and outdoor dining availability. Our staff is fully vaccinated and trained in safety procedures."
+            ]
+        },
+        {
+            "tag": "gift_cards",
+            "patterns": [
+                "Do you offer gift cards?", "Gift vouchers available?", "Purchase gift certificate", "Digital gift card",
+                "Restaurant vouchers", "Gift a meal", "Send a gift card", "Corporate gift options", "Gift card denominations",
+                "Gift card expiry", "How to redeem gift card", "E-gift options"
+            ],
+            "responses": [
+                "Yes, we offer gift cards in various denominations that make perfect presents for food lovers! They're available for purchase in-restaurant or through our website.",
+                "Our gift cards are available in physical and digital formats, ranging from $25 to $200. They're valid for one year from purchase and can be used for dine-in, takeaway, or online orders.",
+                "Share the gift of South Indian cuisine with our gift cards! Available in-store or online, these cards can be personalized with a message and delivered physically or electronically to your recipient."
+            ]
+        }
+    ]
+}
