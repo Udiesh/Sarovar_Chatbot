@@ -48,7 +48,7 @@
       <!-- Chat Messages -->
       <div class="chat-messages" id="chat-messages">
         <div class="message bot-msg fade-in">
-          <img src="/static/chatbot.webp" alt="Dexter" class="msg-avatar" />
+          <img src="/static/chatbot_icon.jpeg" alt="Dexter" class="msg-avatar" />
           <div class="msg-bubble">
             <p>Vanakkam! Welcome to Sarovar South Spice. I'm Dexter, your AI concierge. Ask me about our menu, book a
               table, or anything else!</p>
@@ -234,7 +234,7 @@
     function addMessage(content, isBot, extra = '') {
       const container = document.getElementById('chat-messages');
       const time = timeNow();
-      const avatar = isBot ? '/static/chatbot.webp' : '/static/chater.webp';
+      const avatar = isBot ? '/static/chatbot_icon.jpeg' : '/static/human_icon.jpeg';
       const cls = isBot ? 'bot-msg' : 'user-msg';
 
       // Format newlines
@@ -259,7 +259,7 @@
       const container = document.getElementById('chat-messages');
       const html = `
     <div class="message bot-msg typing-msg fade-in">
-      <img src="/static/chatbot.webp" alt="Dexter" class="msg-avatar" />
+      <img src="/static/chatbot_icon.jpeg" alt="Dexter" class="msg-avatar" />
       <div class="msg-bubble typing-bubble">
         <div class="typing-dots"><span></span><span></span><span></span></div>
       </div>
