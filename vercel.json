@@ -7,6 +7,14 @@
   ],
   "routes": [
     {
+      "src": "/reset-menu",
+      "dest": "app.py"
+    },
+    {
+      "src": "/init-db",
+      "dest": "app.py"
+    },
+    {
       "src": "/(.*)",
       "dest": "app.py"
     }
