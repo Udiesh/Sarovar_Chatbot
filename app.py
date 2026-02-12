@@ -74,19 +74,7 @@ def init_db():
     except Exception as e:
         print(f"DB init error: {e}")
 
-@app.route('/reset-menu')
-def reset_menu():
-    try:
-        conn = get_db()
-        cur = conn.cursor()
-        cur.execute('DELETE FROM menu_items')
-        seed_menu(cur)
-        conn.commit()
-        cur.close()
-        conn.close()
-        return jsonify({'status': 'success', 'message': 'Menu reset'})
-    except Exception as e:
-        return jsonify({'status': 'error', 'message': str(e)})
+
 
 def seed_menu(cur):
     menu = [
@@ -370,6 +358,20 @@ def rate_conversation():
 @app.route('/test')
 def test():
     return jsonify({'status': 'ok', 'llm_enabled': bool(groq_client), 'db_connected': bool(DATABASE_URL)})
+
+@app.route('/reset-menu')
+def reset_menu():
+    try:
+        conn = get_db()
+        cur = conn.cursor()
+        cur.execute('DELETE FROM menu_items')
+        seed_menu(cur)
+        conn.commit()
+        cur.close()
+        conn.close()
+        return jsonify({'status': 'success', 'message': 'Menu reset'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
 
 # Init DB on startup
 try:
