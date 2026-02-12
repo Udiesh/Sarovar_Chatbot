@@ -3,9 +3,28 @@
         {
             "tag": "greeting",
             "patterns": [
-                "Hi", "hi", "Hey", "hey", "How are you?", "Is anyone there?", "Hello", "Good day", "What's up?",
-                "Good morning", "Good afternoon", "Good evening", "Hola", "Namaste", "Vanakkam", "Greetings",
-                "Hello there", "Hi Dexter", "Hey Dexter", "Can you help me?", "Starting a chat", "What's going on?"
+                "Hi",
+                "hi",
+                "Hey",
+                "hey",
+                "How are you?",
+                "Is anyone there?",
+                "Hello",
+                "Good day",
+                "What's up?",
+                "Good morning",
+                "Good afternoon",
+                "Good evening",
+                "Hola",
+                "Namaste",
+                "Vanakkam",
+                "Greetings",
+                "Hello there",
+                "Hi Dexter",
+                "Hey Dexter",
+                "Can you help me?",
+                "Starting a chat",
+                "What's going on?"
             ],
             "responses": [
                 "Welcome to our restaurant! How can I assist you today?",
@@ -19,12 +38,27 @@
         {
             "tag": "book_table",
             "patterns": [
-                "Book a table", "Can I book a table?", "I want to book a table", "Book a seat", "I want to book a seat",
-                "Can I book a seat?", "Reservation for tonight", "Need to make a reservation", "Table for two please",
-                "Can I get a table for four?", "I'd like to reserve a table", "Make a dining reservation",
-                "Book a table for tomorrow evening", "Is it possible to book for Friday night?",
-                "Table for a family of six", "Can I get a romantic table for two?", "Need a quiet table for business meeting",
-                "Book a table with a view", "Outdoor seating reservation", "Indoor seating reservation", "Is there a table for 2?"
+                "Book a table",
+                "Can I book a table?",
+                "I want to book a table",
+                "Book a seat",
+                "I want to book a seat",
+                "Can I book a seat?",
+                "Reservation for tonight",
+                "Need to make a reservation",
+                "Table for two please",
+                "Can I get a table for four?",
+                "I'd like to reserve a table",
+                "Make a dining reservation",
+                "Book a table for tomorrow evening",
+                "Is it possible to book for Friday night?",
+                "Table for a family of six",
+                "Can I get a romantic table for two?",
+                "Need a quiet table for business meeting",
+                "Book a table with a view",
+                "Outdoor seating reservation",
+                "Indoor seating reservation",
+                "Is there a table for 2?"
             ],
             "responses": [
                 "Your table has been booked. Booking ID is: {{booking_id}}. For more details about your bookings, please visit our website.",
@@ -36,10 +70,18 @@
         {
             "tag": "modify_booking",
             "patterns": [
-                "Change my reservation", "Modify booking", "Need to reschedule", "Can I change my table time?",
-                "Move my reservation to later", "Change number of people in reservation", "Update my booking",
-                "Need to add more people to my reservation", "Can I switch from indoor to outdoor seating?",
-                "Need to cancel my reservation", "Booking ID change request", "Different table request"
+                "Change my reservation",
+                "Modify booking",
+                "Need to reschedule",
+                "Can I change my table time?",
+                "Move my reservation to later",
+                "Change number of people in reservation",
+                "Update my booking",
+                "Need to add more people to my reservation",
+                "Can I switch from indoor to outdoor seating?",
+                "Need to cancel my reservation",
+                "Booking ID change request",
+                "Different table request"
             ],
             "responses": [
                 "I'd be happy to help modify your reservation. Please provide your booking ID and the changes you'd like to make.",
@@ -50,9 +92,23 @@
         {
             "tag": "menu",
             "patterns": [
-                "I'd like to order something", "menu", "What's on the menu?", "What do you recommend?", "Could I get something to eat?",
-                "I'm hungry", "List of food items", "Hotel menu", "Show me the menu", "Food options", "What can I eat here?",
-                "What dishes do you serve", "Full menu please", "Digital menu", "Specials menu", "Seasonal menu", "Today's specials"
+                "I'd like to order something",
+                "menu",
+                "What's on the menu?",
+                "What do you recommend?",
+                "Could I get something to eat?",
+                "I'm hungry",
+                "List of food items",
+                "Hotel menu",
+                "Show me the menu",
+                "Food options",
+                "What can I eat here?",
+                "What dishes do you serve",
+                "Full menu please",
+                "Digital menu",
+                "Specials menu",
+                "Seasonal menu",
+                "Today's specials"
             ],
             "responses": [
                 "Sure! Here's our menu:\n- Idli\n- Dosa\n- Uttapam\n- Vada\n- Sambar\n- Rasam\n- Curry\n- Biryani\n- Paneer Tikka\n\nWould you like details about any specific dish?",
@@ -63,9 +119,25 @@
         {
             "tag": "bye",
             "patterns": [
-                "Cya", "Bye", "See you later", "Goodbye", "I am Leaving", "Have a good day", "Cya later", "I gotta go now",
-                "I gotta rush now", "Thanks, that's all", "That's all I needed", "Goodbye Dexter", "Ending chat",
-                "Thanks for your help", "Got to go", "Wrapping up", "That's it for now", "Until next time", "Catch you later",
+                "Cya",
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "I am Leaving",
+                "Have a good day",
+                "Cya later",
+                "I gotta go now",
+                "I gotta rush now",
+                "Thanks, that's all",
+                "That's all I needed",
+                "Goodbye Dexter",
+                "Ending chat",
+                "Thanks for your help",
+                "Got to go",
+                "Wrapping up",
+                "That's it for now",
+                "Until next time",
+                "Catch you later",
                 "See you soon"
             ],
             "responses": [
@@ -79,9 +151,23 @@
         {
             "tag": "hours",
             "patterns": [
-                "When are you guys open?", "What are your hours?", "Hours of operation", "Hours", "What is the timing?",
-                "Closing time", "Opening time", "Weekend hours", "Holiday hours", "Lunch hours", "Dinner timing", "Do you close for lunch?",
-                "Late night hours", "Early bird hours", "Are you open now?", "Are you open on Sundays?", "Are you open on public holidays?"
+                "When are you guys open?",
+                "What are your hours?",
+                "Hours of operation",
+                "Hours",
+                "What is the timing?",
+                "Closing time",
+                "Opening time",
+                "Weekend hours",
+                "Holiday hours",
+                "Lunch hours",
+                "Dinner timing",
+                "Do you close for lunch?",
+                "Late night hours",
+                "Early bird hours",
+                "Are you open now?",
+                "Are you open on Sundays?",
+                "Are you open on public holidays?"
             ],
             "responses": [
                 "We are open from 11am to 10pm every day to serve you the best of South Indian cuisine at Sarovar South Spice!",
@@ -93,9 +179,15 @@
         {
             "tag": "restaurant_age",
             "patterns": [
-                "How old is the restaurant?", "When did you open?", "How long have you been in business?",
-                "When was Sarovar South Spice established?", "Founding date", "Restaurant history", "How many years in business?",
-                "When did you start?", "Opening date"
+                "How old is the restaurant?",
+                "When did you open?",
+                "How long have you been in business?",
+                "When was Sarovar South Spice established?",
+                "Founding date",
+                "Restaurant history",
+                "How many years in business?",
+                "When did you start?",
+                "Opening date"
             ],
             "responses": [
                 "Our Sarovar South Spice restaurant is fresh and new, just like the flavors we serve!",
@@ -106,8 +198,16 @@
         {
             "tag": "chef_recommendation",
             "patterns": [
-                "Chef's recommendation?", "Specialty dish?", "What's good today?", "Chef's choice", "Best items to try",
-                "Top dishes", "Must-try items", "Recommended combinations", "First-time visitor recommendations", "Chef's tasting menu"
+                "Chef's recommendation?",
+                "Specialty dish?",
+                "What's good today?",
+                "Chef's choice",
+                "Best items to try",
+                "Top dishes",
+                "Must-try items",
+                "Recommended combinations",
+                "First-time visitor recommendations",
+                "Chef's tasting menu"
             ],
             "responses": [
                 "Our chef recommends trying our signature Masala Dosa or the flavorful Chettinad Chicken Curry!",
@@ -118,9 +218,19 @@
         {
             "tag": "contact",
             "patterns": [
-                "Contact information", "Contact us", "How can I contact you?", "Can I get the contact details?",
-                "I wanna give some feedback", "How can I give some feedback?", "Phone number", "Email address",
-                "Contact form", "Reach out to management", "Talk to manager", "Customer service contact", "Direct line",
+                "Contact information",
+                "Contact us",
+                "How can I contact you?",
+                "Can I get the contact details?",
+                "I wanna give some feedback",
+                "How can I give some feedback?",
+                "Phone number",
+                "Email address",
+                "Contact form",
+                "Reach out to management",
+                "Talk to manager",
+                "Customer service contact",
+                "Direct line",
                 "Manager contact"
             ],
             "responses": [
@@ -132,10 +242,22 @@
         {
             "tag": "dietary_restrictions",
             "patterns": [
-                "Do you have vegetarian options?", "Vegan food available?", "Gluten-free dishes?", "Allergy-friendly menu",
-                "I have a nut allergy", "Lactose intolerance options", "No onion no garlic dishes", "Keto-friendly options",
-                "Low calorie options", "Do you cater to food allergies?", "Dairy-free dishes", "Halal options available?",
-                "Organic ingredients", "Is your food peanut-free?", "Egg-free dishes", "Jain food options"
+                "Do you have vegetarian options?",
+                "Vegan food available?",
+                "Gluten-free dishes?",
+                "Allergy-friendly menu",
+                "I have a nut allergy",
+                "Lactose intolerance options",
+                "No onion no garlic dishes",
+                "Keto-friendly options",
+                "Low calorie options",
+                "Do you cater to food allergies?",
+                "Dairy-free dishes",
+                "Halal options available?",
+                "Organic ingredients",
+                "Is your food peanut-free?",
+                "Egg-free dishes",
+                "Jain food options"
             ],
             "responses": [
                 "We offer a wide range of vegetarian and vegan options. We also accommodate allergies and dietary restrictions - please inform your server about specific requirements when ordering.",
@@ -146,10 +268,21 @@
         {
             "tag": "takeaway",
             "patterns": [
-                "Do you offer takeaway?", "Can I order food to go?", "Takeout options", "Food delivery available?", 
-                "Can I get my food packed?", "How to place a takeaway order", "Pickup service", "Delivery radius",
-                "Food packaging", "Order to go", "Take home food", "Bring food home", "Do you deliver?",
-                "How long for pickup?", "Is there a minimum order for delivery?"
+                "Do you offer takeaway?",
+                "Can I order food to go?",
+                "Takeout options",
+                "Food delivery available?",
+                "Can I get my food packed?",
+                "How to place a takeaway order",
+                "Pickup service",
+                "Delivery radius",
+                "Food packaging",
+                "Order to go",
+                "Take home food",
+                "Bring food home",
+                "Do you deliver?",
+                "How long for pickup?",
+                "Is there a minimum order for delivery?"
             ],
             "responses": [
                 "Yes, we offer takeaway services! You can place your order through our website, by phone, or in person at the restaurant.",
@@ -160,10 +293,20 @@
         {
             "tag": "payment_options",
             "patterns": [
-                "What payment methods do you accept?", "Do you take credit cards?", "Cash only?", "Can I pay online?",
-                "Digital payment options", "UPI accepted?", "Contactless payment", "Do you accept debit cards?",
-                "Mobile wallet payment", "Payment apps accepted", "Advance payment for booking", "Billing options",
-                "Split bill possible?", "Do you charge service fee?"
+                "What payment methods do you accept?",
+                "Do you take credit cards?",
+                "Cash only?",
+                "Can I pay online?",
+                "Digital payment options",
+                "UPI accepted?",
+                "Contactless payment",
+                "Do you accept debit cards?",
+                "Mobile wallet payment",
+                "Payment apps accepted",
+                "Advance payment for booking",
+                "Billing options",
+                "Split bill possible?",
+                "Do you charge service fee?"
             ],
             "responses": [
                 "We accept all major credit cards, debit cards, cash, and digital payment methods including UPI, Google Pay, and PayTM.",
@@ -174,9 +317,18 @@
         {
             "tag": "spice_level",
             "patterns": [
-                "How spicy is the food?", "Can I adjust spice level?", "Is all South Indian food spicy?", "Non-spicy options",
-                "Mild dishes available", "Extra spicy possible?", "Spice tolerance", "Authentic spice level",
-                "Kid-friendly spice level", "Medium spicy options", "Spiciest dish on menu", "Spice customization"
+                "How spicy is the food?",
+                "Can I adjust spice level?",
+                "Is all South Indian food spicy?",
+                "Non-spicy options",
+                "Mild dishes available",
+                "Extra spicy possible?",
+                "Spice tolerance",
+                "Authentic spice level",
+                "Kid-friendly spice level",
+                "Medium spicy options",
+                "Spiciest dish on menu",
+                "Spice customization"
             ],
             "responses": [
                 "Our dishes can be customized according to your spice preference - mild, medium, or hot. Just let us know your preference when ordering!",
@@ -187,9 +339,18 @@
         {
             "tag": "parking",
             "patterns": [
-                "Is parking available?", "Where can I park?", "Free parking?", "Valet parking service", "Parking space",
-                "Convenient parking", "Car park location", "Parking charges", "Nearest parking facility",
-                "How far is parking?", "Two-wheeler parking", "Accessibility parking"
+                "Is parking available?",
+                "Where can I park?",
+                "Free parking?",
+                "Valet parking service",
+                "Parking space",
+                "Convenient parking",
+                "Car park location",
+                "Parking charges",
+                "Nearest parking facility",
+                "How far is parking?",
+                "Two-wheeler parking",
+                "Accessibility parking"
             ],
             "responses": [
                 "We offer free parking for our patrons in the lot behind our restaurant. Valet service is available on weekends and holidays.",
@@ -200,10 +361,20 @@
         {
             "tag": "dish_description",
             "patterns": [
-                "What is Dosa?", "Tell me about Idli", "What does Uttapam contain?", "What's in your Biryani?",
-                "Describe Vada", "What is Sambar made of?", "Ingredients in Rasam", "How is Chettinad curry prepared?",
-                "What is filter coffee?", "What's special about South Indian cuisine?", "What is in Thali?",
-                "Describe your Masala Dosa", "What is Appam?", "How do you make Pongal?"
+                "What is Dosa?",
+                "Tell me about Idli",
+                "What does Uttapam contain?",
+                "What's in your Biryani?",
+                "Describe Vada",
+                "What is Sambar made of?",
+                "Ingredients in Rasam",
+                "How is Chettinad curry prepared?",
+                "What is filter coffee?",
+                "What's special about South Indian cuisine?",
+                "What is in Thali?",
+                "Describe your Masala Dosa",
+                "What is Appam?",
+                "How do you make Pongal?"
             ],
             "responses": [
                 "Dosa is a crispy, thin pancake made from fermented rice and lentil batter. Our Masala Dosa comes filled with spiced potato filling and is served with sambar and chutney.",
@@ -214,10 +385,20 @@
         {
             "tag": "catering",
             "patterns": [
-                "Do you offer catering?", "Catering for events", "Private party options", "Food for corporate events",
-                "Can you cater my wedding?", "Birthday party catering", "Event space available?", "Group dining options",
-                "Large order for office", "Banquet facilities", "Outside catering services", "Party menu options",
-                "Special event packages", "Bulk order discounts"
+                "Do you offer catering?",
+                "Catering for events",
+                "Private party options",
+                "Food for corporate events",
+                "Can you cater my wedding?",
+                "Birthday party catering",
+                "Event space available?",
+                "Group dining options",
+                "Large order for office",
+                "Banquet facilities",
+                "Outside catering services",
+                "Party menu options",
+                "Special event packages",
+                "Bulk order discounts"
             ],
             "responses": [
                 "Yes, we offer catering services for events of all sizes! Our team can create customized menus for corporate functions, weddings, parties, and more.",
@@ -228,9 +409,18 @@
         {
             "tag": "location",
             "patterns": [
-                "Where are you located?", "What's your address?", "How do I get to your restaurant?", "Directions to restaurant",
-                "Where is Sarovar South Spice?", "Nearest landmark", "Which area are you in?", "Map location",
-                "Public transport access", "Nearest metro station", "How far from city center?", "Branch locations"
+                "Where are you located?",
+                "What's your address?",
+                "How do I get to your restaurant?",
+                "Directions to restaurant",
+                "Where is Sarovar South Spice?",
+                "Nearest landmark",
+                "Which area are you in?",
+                "Map location",
+                "Public transport access",
+                "Nearest metro station",
+                "How far from city center?",
+                "Branch locations"
             ],
             "responses": [
                 "Sarovar South Spice is located at 123 Flavor Street, Culinary District. We're near the Central Park and just a 5-minute walk from Metro Station.",
@@ -241,9 +431,18 @@
         {
             "tag": "wifi",
             "patterns": [
-                "Do you have WiFi?", "Is there free internet?", "WiFi password please", "Can I work from your restaurant?",
-                "Internet connectivity", "Is your WiFi fast?", "Public WiFi available?", "Network access for customers",
-                "Can I use laptop?", "Working space with food", "WiFi speed", "Internet for customers"
+                "Do you have WiFi?",
+                "Is there free internet?",
+                "WiFi password please",
+                "Can I work from your restaurant?",
+                "Internet connectivity",
+                "Is your WiFi fast?",
+                "Public WiFi available?",
+                "Network access for customers",
+                "Can I use laptop?",
+                "Working space with food",
+                "WiFi speed",
+                "Internet for customers"
             ],
             "responses": [
                 "Yes, we offer complimentary WiFi to all our guests. Just ask your server for the password when you're seated.",
@@ -254,9 +453,17 @@
         {
             "tag": "waiting_time",
             "patterns": [
-                "How long is the wait?", "Do I need to queue?", "Current waiting time", "How busy are you now?",
-                "Wait time for walk-ins", "Peak hour waiting", "Can I join waiting list?", "Estimated seating time",
-                "How crowded is the restaurant?", "Long queue now?", "Do you take waiting list remotely?",
+                "How long is the wait?",
+                "Do I need to queue?",
+                "Current waiting time",
+                "How busy are you now?",
+                "Wait time for walk-ins",
+                "Peak hour waiting",
+                "Can I join waiting list?",
+                "Estimated seating time",
+                "How crowded is the restaurant?",
+                "Long queue now?",
+                "Do you take waiting list remotely?",
                 "How to check wait times?"
             ],
             "responses": [
@@ -268,9 +475,17 @@
         {
             "tag": "reviews",
             "patterns": [
-                "What do people say about your restaurant?", "Customer reviews", "Ratings for your food", 
-                "Are you highly rated?", "Popular opinion of restaurant", "Online reviews", "Google rating",
-                "Restaurant ranking", "Critical acclaim", "Customer feedback", "Top-rated dishes according to reviews",
+                "What do people say about your restaurant?",
+                "Customer reviews",
+                "Ratings for your food",
+                "Are you highly rated?",
+                "Popular opinion of restaurant",
+                "Online reviews",
+                "Google rating",
+                "Restaurant ranking",
+                "Critical acclaim",
+                "Customer feedback",
+                "Top-rated dishes according to reviews",
                 "What's your best reviewed item?"
             ],
             "responses": [
@@ -282,10 +497,20 @@
         {
             "tag": "sustainability",
             "patterns": [
-                "Are you eco-friendly?", "Sustainable practices", "Plastic use policy", "Recycling efforts",
-                "Food waste management", "Organic ingredients", "Local sourcing", "Environmental impact",
-                "Eco packaging", "Green initiatives", "Sustainable seafood", "Carbon footprint",
-                "Composting program", "Ethical sourcing"
+                "Are you eco-friendly?",
+                "Sustainable practices",
+                "Plastic use policy",
+                "Recycling efforts",
+                "Food waste management",
+                "Organic ingredients",
+                "Local sourcing",
+                "Environmental impact",
+                "Eco packaging",
+                "Green initiatives",
+                "Sustainable seafood",
+                "Carbon footprint",
+                "Composting program",
+                "Ethical sourcing"
             ],
             "responses": [
                 "Sustainability is important to us! We use biodegradable packaging, source ingredients locally when possible, and have implemented water and energy conservation measures.",
@@ -296,10 +521,20 @@
         {
             "tag": "special_occasions",
             "patterns": [
-                "Birthday celebration", "Anniversary dinner", "Special event accommodations", "Romantic dinner setup",
-                "Celebration arrangements", "Can you do something special for birthdays?", "Surprise arrangements",
-                "Cake cutting allowed?", "Private celebration area", "Special occasion discounts", "Milestone celebration",
-                "Valentine's day special", "Group celebration", "Special decorations available"
+                "Birthday celebration",
+                "Anniversary dinner",
+                "Special event accommodations",
+                "Romantic dinner setup",
+                "Celebration arrangements",
+                "Can you do something special for birthdays?",
+                "Surprise arrangements",
+                "Cake cutting allowed?",
+                "Private celebration area",
+                "Special occasion discounts",
+                "Milestone celebration",
+                "Valentine's day special",
+                "Group celebration",
+                "Special decorations available"
             ],
             "responses": [
                 "We'd be delighted to help make your special occasion memorable! We offer complimentary cake cutting, special decorations, and can arrange surprise elements upon request with 24 hours notice.",
@@ -310,9 +545,19 @@
         {
             "tag": "kids_options",
             "patterns": [
-                "Do you have a children's menu?", "Kid-friendly options", "Baby chair available?", "Food for toddlers",
-                "Child portions", "Activities for kids", "Family-friendly", "Baby changing facilities", "Kids eat free?",
-                "Mild food for children", "Do you welcome children?", "Play area for kids", "High chairs available?"
+                "Do you have a children's menu?",
+                "Kid-friendly options",
+                "Baby chair available?",
+                "Food for toddlers",
+                "Child portions",
+                "Activities for kids",
+                "Family-friendly",
+                "Baby changing facilities",
+                "Kids eat free?",
+                "Mild food for children",
+                "Do you welcome children?",
+                "Play area for kids",
+                "High chairs available?"
             ],
             "responses": [
                 "We're family-friendly! We offer kid-sized portions of mild dishes, high chairs, changing facilities, and a small play area to keep little ones entertained.",
@@ -323,9 +568,18 @@
         {
             "tag": "cultural_events",
             "patterns": [
-                "Do you host cultural events?", "Live music nights", "Cultural performances", "Special festival celebrations",
-                "Traditional dance shows", "Music at restaurant", "Entertainment options", "Weekend performances",
-                "Local artists", "Cultural nights", "Festival special events", "Traditional music"
+                "Do you host cultural events?",
+                "Live music nights",
+                "Cultural performances",
+                "Special festival celebrations",
+                "Traditional dance shows",
+                "Music at restaurant",
+                "Entertainment options",
+                "Weekend performances",
+                "Local artists",
+                "Cultural nights",
+                "Festival special events",
+                "Traditional music"
             ],
             "responses": [
                 "We host cultural events every Saturday evening featuring traditional South Indian music and dance performances. Check our website or social media for the upcoming schedule!",
@@ -336,9 +590,18 @@
         {
             "tag": "accessibility",
             "patterns": [
-                "Wheelchair accessible?", "Accessibility features", "Disabled facilities", "Accessible entrance",
-                "Handicap parking", "Accessible restrooms", "Special assistance", "Wheelchair ramp",
-                "Accommodations for disabled", "Accessible seating", "Disability friendly", "Service animals allowed?"
+                "Wheelchair accessible?",
+                "Accessibility features",
+                "Disabled facilities",
+                "Accessible entrance",
+                "Handicap parking",
+                "Accessible restrooms",
+                "Special assistance",
+                "Wheelchair ramp",
+                "Accommodations for disabled",
+                "Accessible seating",
+                "Disability friendly",
+                "Service animals allowed?"
             ],
             "responses": [
                 "Our restaurant is fully wheelchair accessible with ramp access, accessible restrooms, and designated parking spaces. Service animals are always welcome.",
@@ -349,9 +612,18 @@
         {
             "tag": "cooking_class",
             "patterns": [
-                "Do you offer cooking classes?", "Learn to cook South Indian", "Cooking workshops", "Chef demonstrations",
-                "Culinary lessons", "Can I learn your recipes?", "Group cooking sessions", "Private cooking lessons",
-                "Cooking experiences", "Hands-on cooking", "Culinary workshop schedule", "Recipe sharing"
+                "Do you offer cooking classes?",
+                "Learn to cook South Indian",
+                "Cooking workshops",
+                "Chef demonstrations",
+                "Culinary lessons",
+                "Can I learn your recipes?",
+                "Group cooking sessions",
+                "Private cooking lessons",
+                "Cooking experiences",
+                "Hands-on cooking",
+                "Culinary workshop schedule",
+                "Recipe sharing"
             ],
             "responses": [
                 "Yes, we offer monthly cooking classes where our chef teaches authentic South Indian cooking techniques! Check our website for the schedule and registration details.",
@@ -362,9 +634,17 @@
         {
             "tag": "health_benefits",
             "patterns": [
-                "Is South Indian food healthy?", "Nutritional information", "Health benefits of your food",
-                "Low-calorie options", "Healthy menu choices", "Nutritional value of dishes", "Diet-friendly options",
-                "Heart-healthy dishes", "Calorie count available?", "Good for health?", "Anti-inflammatory dishes",
+                "Is South Indian food healthy?",
+                "Nutritional information",
+                "Health benefits of your food",
+                "Low-calorie options",
+                "Healthy menu choices",
+                "Nutritional value of dishes",
+                "Diet-friendly options",
+                "Heart-healthy dishes",
+                "Calorie count available?",
+                "Good for health?",
+                "Anti-inflammatory dishes",
                 "Ayurvedic properties"
             ],
             "responses": [
@@ -376,9 +656,18 @@
         {
             "tag": "about_chef",
             "patterns": [
-                "Who is the chef?", "Tell me about your chef", "Chef's background", "Kitchen staff information",
-                "Head chef experience", "Chef's speciality", "Where is your chef from?", "Chef's training",
-                "Executive chef", "Meet the chef possible?", "Chef's philosophy", "Chef's culinary journey"
+                "Who is the chef?",
+                "Tell me about your chef",
+                "Chef's background",
+                "Kitchen staff information",
+                "Head chef experience",
+                "Chef's speciality",
+                "Where is your chef from?",
+                "Chef's training",
+                "Executive chef",
+                "Meet the chef possible?",
+                "Chef's philosophy",
+                "Chef's culinary journey"
             ],
             "responses": [
                 "Our head chef, Rajesh Kumar, has over 20 years of experience specializing in authentic South Indian cuisine. He trained in Chennai and has worked in premium restaurants across India before joining us.",
@@ -389,9 +678,18 @@
         {
             "tag": "loyalty_program",
             "patterns": [
-                "Do you have a loyalty program?", "Reward points system", "Customer loyalty benefits", "Regular customer perks",
-                "Membership program", "Frequent diner rewards", "Loyalty card", "Points per visit", "Loyalty app",
-                "Discount for regular customers", "Join rewards program", "VIP customer benefits"
+                "Do you have a loyalty program?",
+                "Reward points system",
+                "Customer loyalty benefits",
+                "Regular customer perks",
+                "Membership program",
+                "Frequent diner rewards",
+                "Loyalty card",
+                "Points per visit",
+                "Loyalty app",
+                "Discount for regular customers",
+                "Join rewards program",
+                "VIP customer benefits"
             ],
             "responses": [
                 "Yes, we have a loyalty program! Earn points with every visit, receive birthday rewards, and enjoy exclusive member discounts. You can sign up for free at our restaurant or on our website.",
@@ -402,9 +700,19 @@
         {
             "tag": "online_ordering",
             "patterns": [
-                "Can I order online?", "Food delivery app", "Online delivery options", "Website ordering", "Mobile app for food",
-                "Order from home", "Digital menu ordering", "Takeaway app", "Online reservation system", "Pre-order food",
-                "Food ordering platforms", "Do you have an app?", "Order ahead option"
+                "Can I order online?",
+                "Food delivery app",
+                "Online delivery options",
+                "Website ordering",
+                "Mobile app for food",
+                "Order from home",
+                "Digital menu ordering",
+                "Takeaway app",
+                "Online reservation system",
+                "Pre-order food",
+                "Food ordering platforms",
+                "Do you have an app?",
+                "Order ahead option"
             ],
             "responses": [
                 "Yes! You can order online through our website or mobile app. We're also available on major food delivery platforms like Zomato, Swiggy, and UberEats.",
@@ -415,9 +723,19 @@
         {
             "tag": "drink_options",
             "patterns": [
-                "What drinks do you serve?", "Beverage menu", "Alcoholic drinks available?", "Traditional South Indian drinks",
-                "Cocktail options", "Wine selection", "Beer available?", "Non-alcoholic options", "Coffee and tea selection",
-                "Signature drinks", "Lassi varieties", "Fresh juices", "Do you serve alcohol?"
+                "What drinks do you serve?",
+                "Beverage menu",
+                "Alcoholic drinks available?",
+                "Traditional South Indian drinks",
+                "Cocktail options",
+                "Wine selection",
+                "Beer available?",
+                "Non-alcoholic options",
+                "Coffee and tea selection",
+                "Signature drinks",
+                "Lassi varieties",
+                "Fresh juices",
+                "Do you serve alcohol?"
             ],
             "responses": [
                 "We offer a variety of traditional South Indian beverages like Filter Coffee, Masala Chai, fresh lime soda, mango lassi, and buttermilk. We also have a selection of beers, wines, and non-alcoholic options.",
@@ -428,9 +746,19 @@
         {
             "tag": "covid_safety",
             "patterns": [
-                "COVID safety measures", "Health protocols", "Safety precautions", "Sanitization measures", "Staff vaccination",
-                "Mask policy", "Social distancing arrangements", "COVID safe dining", "Health and safety", "Outdoor dining option",
-                "Contactless options", "Temperature checks", "Sanitizers available"
+                "COVID safety measures",
+                "Health protocols",
+                "Safety precautions",
+                "Sanitization measures",
+                "Staff vaccination",
+                "Mask policy",
+                "Social distancing arrangements",
+                "COVID safe dining",
+                "Health and safety",
+                "Outdoor dining option",
+                "Contactless options",
+                "Temperature checks",
+                "Sanitizers available"
             ],
             "responses": [
                 "Your safety is our priority! We maintain strict sanitization protocols, have spaced out seating, offer contactless payment options, and ensure all staff follow proper health guidelines.",
@@ -441,9 +769,18 @@
         {
             "tag": "gift_cards",
             "patterns": [
-                "Do you offer gift cards?", "Gift vouchers available?", "Purchase gift certificate", "Digital gift card",
-                "Restaurant vouchers", "Gift a meal", "Send a gift card", "Corporate gift options", "Gift card denominations",
-                "Gift card expiry", "How to redeem gift card", "E-gift options"
+                "Do you offer gift cards?",
+                "Gift vouchers available?",
+                "Purchase gift certificate",
+                "Digital gift card",
+                "Restaurant vouchers",
+                "Gift a meal",
+                "Send a gift card",
+                "Corporate gift options",
+                "Gift card denominations",
+                "Gift card expiry",
+                "How to redeem gift card",
+                "E-gift options"
             ],
             "responses": [
                 "Yes, we offer gift cards in various denominations that make perfect presents for food lovers! They're available for purchase in-restaurant or through our website.",
