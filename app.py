@@ -74,38 +74,64 @@ def init_db():
     except Exception as e:
         print(f"DB init error: {e}")
 
+@app.route('/reset-menu')
+def reset_menu():
+    try:
+        conn = get_db()
+        cur = conn.cursor()
+        cur.execute('DELETE FROM menu_items')
+        seed_menu(cur)
+        conn.commit()
+        cur.close()
+        conn.close()
+        return jsonify({'status': 'success', 'message': 'Menu reset'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+
 def seed_menu(cur):
     menu = [
-        ("Masala Dosa", "Crispy rice crepe filled with spiced potato, served with sambar & chutneys", 8.99, "Breakfast", True, True, False, True),
-        ("Plain Dosa", "Thin crispy rice & lentil crepe with sambar & chutneys", 6.99, "Breakfast", True, True, False, False),
-        ("Idli Sambar", "Steamed rice cakes (3 pcs) with sambar & coconut chutney", 5.99, "Breakfast", True, True, False, True),
-        ("Medu Vada", "Crispy lentil donuts (3 pcs) with sambar & chutney", 5.99, "Breakfast", True, True, False, False),
-        ("Uttapam", "Thick rice pancake topped with onions, tomatoes & chilies", 7.99, "Breakfast", True, True, False, False),
-        ("Pongal", "Creamy rice & lentil porridge tempered with pepper & cumin", 6.99, "Breakfast", True, False, False, False),
-        ("Upma", "Semolina cooked with vegetables & spices", 5.99, "Breakfast", True, True, False, False),
-        ("Chettinad Chicken Curry", "Fiery chicken curry with freshly ground spices", 14.99, "Main Course", False, False, True, True),
-        ("Hyderabadi Biryani", "Fragrant basmati rice layered with spiced meat & saffron", 13.99, "Main Course", False, False, True, True),
-        ("Vegetable Biryani", "Aromatic basmati rice with seasonal vegetables", 11.99, "Main Course", True, True, False, False),
-        ("Paneer Tikka Masala", "Cottage cheese in creamy tomato-spice gravy", 12.99, "Main Course", True, False, False, False),
-        ("Fish Moilee", "Kerala-style fish in coconut milk & turmeric sauce", 15.99, "Main Course", False, False, False, False),
-        ("Sambar Rice", "Lentil stew with vegetables served over steamed rice", 9.99, "Main Course", True, True, False, False),
-        ("Rasam Rice", "Tangy tamarind-pepper soup with rice & papad", 8.99, "Main Course", True, True, False, False),
-        ("Sarovar Special Thali", "Complete meal: rice, sambar, rasam, 2 curries, curd, papad, dessert", 16.99, "Main Course", True, False, False, True),
-        ("Bajji Platter", "Assorted vegetable fritters with mint chutney", 6.99, "Snacks", True, True, False, False),
-        ("Chicken 65", "Spicy deep-fried chicken bites, Hyderabad style", 9.99, "Snacks", False, False, True, True),
-        ("Mysore Bonda", "Crispy fried lentil balls with coconut chutney", 5.99, "Snacks", True, True, False, False),
-        ("Paneer Pakora", "Cottage cheese fritters with spiced batter", 7.99, "Snacks", True, False, False, False),
-        ("Filter Coffee", "Traditional South Indian drip coffee with chicory", 3.99, "Beverages", True, False, False, True),
-        ("Masala Chai", "Spiced tea with cardamom, ginger & cinnamon", 3.49, "Beverages", True, False, False, False),
-        ("Mango Lassi", "Sweet yogurt drink blended with mango pulp", 4.99, "Beverages", True, False, False, True),
-        ("Buttermilk", "Spiced churned yogurt drink (Neer Mor)", 2.99, "Beverages", True, False, False, False),
-        ("Rose Milk", "Chilled milk infused with rose syrup", 3.99, "Beverages", True, False, False, False),
-        ("Fresh Lime Soda", "Freshly squeezed lime with soda", 2.99, "Beverages", True, True, False, False),
-        ("Gulab Jamun", "Deep-fried milk dumplings in rose-cardamom syrup (2 pcs)", 4.99, "Desserts", True, False, False, True),
-        ("Payasam", "South Indian rice pudding with cashews & raisins", 5.99, "Desserts", True, False, False, False),
-        ("Mysore Pak", "Ghee-rich gram flour fudge", 4.99, "Desserts", True, False, False, False),
-        ("Rava Kesari", "Semolina halwa with saffron, ghee & dry fruits", 4.99, "Desserts", True, False, False, False),
-    ]
+    # Breakfast
+    ("Masala Dosa", "Crispy rice crepe filled with spiced potato, served with sambar & chutneys", 199, "Breakfast", True, True, False, True),
+    ("Plain Dosa", "Thin crispy rice & lentil crepe with sambar & chutneys", 149, "Breakfast", True, True, False, False),
+    ("Idli Sambar", "Steamed rice cakes (3 pcs) with sambar & coconut chutney", 149, "Breakfast", True, True, False, True),
+    ("Medu Vada", "Crispy lentil donuts (3 pcs) with sambar & chutney", 169, "Breakfast", True, True, False, False),
+    ("Uttapam", "Thick rice pancake topped with onions, tomatoes & chilies", 199, "Breakfast", True, True, False, False),
+    ("Pongal", "Creamy rice & lentil porridge tempered with pepper & cumin", 179, "Breakfast", True, False, False, False),
+    ("Upma", "Semolina cooked with vegetables & spices", 149, "Breakfast", True, True, False, False),
+
+    # Main Course – Non-Veg
+    ("Chettinad Chicken Curry", "Fiery chicken curry with freshly ground spices", 399, "Main Course", False, False, True, True),
+    ("Hyderabadi Biryani", "Fragrant basmati rice layered with spiced meat & saffron", 349, "Main Course", False, False, True, True),
+
+    # Main Course – Veg
+    ("Vegetable Biryani", "Aromatic basmati rice with seasonal vegetables", 279, "Main Course", True, True, False, False),
+    ("Paneer Tikka Masala", "Cottage cheese in creamy tomato-spice gravy", 329, "Main Course", True, False, False, False),
+    ("Fish Moilee", "Kerala-style fish in coconut milk & turmeric sauce", 429, "Main Course", False, False, False, False),
+    ("Sambar Rice", "Lentil stew with vegetables served over steamed rice", 229, "Main Course", True, True, False, False),
+    ("Rasam Rice", "Tangy tamarind-pepper soup with rice & papad", 199, "Main Course", True, True, False, False),
+    ("Sarovar Special Thali", "Complete meal: rice, sambar, rasam, 2 curries, curd, papad, dessert", 499, "Main Course", True, False, False, True),
+
+    # Snacks
+    ("Bajji Platter", "Assorted vegetable fritters with mint chutney", 199, "Snacks", True, True, False, False),
+    ("Chicken 65", "Spicy deep-fried chicken bites, Hyderabad style", 299, "Snacks", False, False, True, True),
+    ("Mysore Bonda", "Crispy fried lentil balls with coconut chutney", 179, "Snacks", True, True, False, False),
+    ("Paneer Pakora", "Cottage cheese fritters with spiced batter", 249, "Snacks", True, False, False, False),
+
+    # Beverages
+    ("Filter Coffee", "Traditional South Indian drip coffee with chicory", 99, "Beverages", True, False, False, True),
+    ("Masala Chai", "Spiced tea with cardamom, ginger & cinnamon", 79, "Beverages", True, False, False, False),
+    ("Mango Lassi", "Sweet yogurt drink blended with mango pulp", 149, "Beverages", True, False, False, True),
+    ("Buttermilk", "Spiced churned yogurt drink (Neer Mor)", 79, "Beverages", True, False, False, False),
+    ("Rose Milk", "Chilled milk infused with rose syrup", 99, "Beverages", True, False, False, False),
+    ("Fresh Lime Soda", "Freshly squeezed lime with soda", 89, "Beverages", True, True, False, False),
+
+    # Desserts
+    ("Gulab Jamun", "Deep-fried milk dumplings in rose-cardamom syrup (2 pcs)", 149, "Desserts", True, False, False, True),
+    ("Payasam", "South Indian rice pudding with cashews & raisins", 179, "Desserts", True, False, False, False),
+    ("Mysore Pak", "Ghee-rich gram flour fudge", 149, "Desserts", True, False, False, False),
+    ("Rava Kesari", "Semolina halwa with saffron, ghee & dry fruits", 149, "Desserts", True, False, False, False),
+]
+
     
     for item in menu:
         cur.execute('''
