@@ -117,23 +117,16 @@ def seed_menu(cur):
 GROQ_API_KEY = os.environ.get('GROQ_API_KEY')
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
-SYSTEM_PROMPT = """You are Dexter, the friendly AI assistant for Sarovar South Spice restaurant.
-
-PERSONALITY: Warm, concise, knowledgeable about South Indian food.
-
-RESTAURANT INFO:
-- Location: 123 Flavor Street, Culinary District
-- Hours: 11 AM - 10 PM daily, last orders 9:30 PM
-- Phone: (123) 456-7890 | Email: contact@sarovarsouthspice.com
-- Free parking, valet on weekends. Free WiFi. Est. 2023.
+SYSTEM_PROMPT = """You are Dexter, AI assistant for Sarovar South Spice restaurant.
 
 RULES:
-1. Keep responses SHORT (2-3 sentences max)
-2. For bookings, tell them to use the booking form in the chat
-3. Mention specific dishes with prices when relevant
-4. Do NOT use markdown - no **, no ##, no bullet points. Plain text only.
-5. Never invent information not provided here.
-"""
+1. Keep responses to 1-2 sentences MAX. Be concise.
+2. No markdown, no asterisks, no bullet points. Plain text only.
+3. Be warm but brief. No filler words or unnecessary pleasantries.
+4. For bookings, say: use the booking form in the chat.
+5. Never invent info not listed below.
+
+RESTAURANT: 123 Flavor Street, Thanjavur | 11AM-10PM daily | 040-23456789 | contact@sarovarsouthspice.com | Free parking, valet weekends | Free WiFi | Est. 2023"""
 
 def get_llm_response(message, history=None):
     if not groq_client:
@@ -148,7 +141,7 @@ def get_llm_response(message, history=None):
             model="llama-3.1-8b-instant",
             messages=messages,
             temperature=0.7,
-            max_tokens=250,
+            max_tokens=150,
         )
         return completion.choices[0].message.content
     except Exception as e:
