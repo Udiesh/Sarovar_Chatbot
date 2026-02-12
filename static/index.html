@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Sarovar South Spice — AI Concierge</title>
   <link rel="icon" href="/static/6.jpeg" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="/static/style.css" />
 </head>
+
 <body>
   <div class="app-wrapper">
     <!-- Chat Container -->
@@ -45,7 +50,8 @@
         <div class="message bot-msg fade-in">
           <img src="/static/chatbot.webp" alt="Dexter" class="msg-avatar" />
           <div class="msg-bubble">
-            <p>Vanakkam! Welcome to Sarovar South Spice. I'm Dexter, your AI concierge. Ask me about our menu, book a table, or anything else!</p>
+            <p>Vanakkam! Welcome to Sarovar South Spice. I'm Dexter, your AI concierge. Ask me about our menu, book a
+              table, or anything else!</p>
             <span class="msg-time"></span>
           </div>
         </div>
@@ -84,12 +90,17 @@
       <div class="menu-filters" id="menu-filters"></div>
       <div class="menu-filter-tags">
         <button class="filter-tag active" data-filter="all" onclick="filterMenu('all', this)">All</button>
-        <button class="filter-tag" data-filter="veg" onclick="filterMenu('veg', this)"><i class="fas fa-leaf"></i> Veg</button>
-        <button class="filter-tag" data-filter="bestseller" onclick="filterMenu('bestseller', this)"><i class="fas fa-fire"></i> Bestsellers</button>
-        <button class="filter-tag" data-filter="spicy" onclick="filterMenu('spicy', this)"><i class="fas fa-pepper-hot"></i> Spicy</button>
+        <button class="filter-tag" data-filter="veg" onclick="filterMenu('veg', this)"><i class="fas fa-leaf"></i>
+          Veg</button>
+        <button class="filter-tag" data-filter="bestseller" onclick="filterMenu('bestseller', this)"><i
+            class="fas fa-fire"></i> Bestsellers</button>
+        <button class="filter-tag" data-filter="spicy" onclick="filterMenu('spicy', this)"><i
+            class="fas fa-pepper-hot"></i> Spicy</button>
       </div>
       <div class="menu-items-list" id="menu-items-list">
-        <div class="menu-loading"><div class="spinner"></div></div>
+        <div class="menu-loading">
+          <div class="spinner"></div>
+        </div>
       </div>
     </div>
 
@@ -161,75 +172,75 @@
     </div>
   </div>
 
-<script>
-// --- State ---
-let currentRating = 0;
-let partySize = 2;
-let allMenuItems = [];
-let isDark = localStorage.getItem('theme') === 'dark';
+  <script>
+    // --- State ---
+    let currentRating = 0;
+    let partySize = 2;
+    let allMenuItems = [];
+    let isDark = localStorage.getItem('theme') === 'dark';
 
-// --- Init ---
-document.addEventListener('DOMContentLoaded', () => {
-  // Set welcome timestamp
-  document.querySelector('.msg-time').textContent = timeNow();
-  
-  // Theme
-  if (isDark) applyTheme(true);
-  
-  // Set min date for booking
-  const dateInput = document.getElementById('book-date');
-  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
-  
-  // Enter key
-  document.getElementById('user-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
-  });
-  
-  // Voice
-  setupVoice();
-  
-  // Rating stars
-  document.querySelectorAll('.r-star').forEach(star => {
-    star.addEventListener('click', () => {
-      currentRating = parseInt(star.dataset.v);
-      highlightStars(currentRating);
-      document.getElementById('submit-rating-btn').disabled = false;
+    // --- Init ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set welcome timestamp
+      document.querySelector('.msg-time').textContent = timeNow();
+
+      // Theme
+      if (isDark) applyTheme(true);
+
+      // Set min date for booking
+      const dateInput = document.getElementById('book-date');
+      if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+
+      // Enter key
+      document.getElementById('user-input').addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }
+      });
+
+      // Voice
+      setupVoice();
+
+      // Rating stars
+      document.querySelectorAll('.r-star').forEach(star => {
+        star.addEventListener('click', () => {
+          currentRating = parseInt(star.dataset.v);
+          highlightStars(currentRating);
+          document.getElementById('submit-rating-btn').disabled = false;
+        });
+        star.addEventListener('mouseover', () => highlightStars(parseInt(star.dataset.v)));
+      });
+      document.getElementById('rating-stars').addEventListener('mouseleave', () => {
+        highlightStars(currentRating);
+      });
     });
-    star.addEventListener('mouseover', () => highlightStars(parseInt(star.dataset.v)));
-  });
-  document.getElementById('rating-stars').addEventListener('mouseleave', () => {
-    highlightStars(currentRating);
-  });
-});
 
-// --- Theme ---
-document.getElementById('theme-btn').addEventListener('click', () => {
-  isDark = !isDark;
-  applyTheme(isDark);
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
+    // --- Theme ---
+    document.getElementById('theme-btn').addEventListener('click', () => {
+      isDark = !isDark;
+      applyTheme(isDark);
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
 
-function applyTheme(dark) {
-  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  const icon = document.querySelector('#theme-btn i');
-  icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
-}
+    function applyTheme(dark) {
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      const icon = document.querySelector('#theme-btn i');
+      icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+    }
 
-// --- Chat ---
-function timeNow() {
-  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
+    // --- Chat ---
+    function timeNow() {
+      return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
 
-function addMessage(content, isBot, extra = '') {
-  const container = document.getElementById('chat-messages');
-  const time = timeNow();
-  const avatar = isBot ? '/static/chatbot.webp' : '/static/chater.webp';
-  const cls = isBot ? 'bot-msg' : 'user-msg';
-  
-  // Format newlines
-  const formatted = content.replace(/\n/g, '<br>');
-  
-  const html = `
+    function addMessage(content, isBot, extra = '') {
+      const container = document.getElementById('chat-messages');
+      const time = timeNow();
+      const avatar = isBot ? '/static/chatbot.webp' : '/static/chater.webp';
+      const cls = isBot ? 'bot-msg' : 'user-msg';
+
+      // Format newlines
+      const formatted = content.replace(/\n/g, '<br>');
+
+      const html = `
     <div class="message ${cls} fade-in">
       ${isBot ? `<img src="${avatar}" alt="Avatar" class="msg-avatar" />` : ''}
       <div class="msg-bubble">
@@ -240,13 +251,13 @@ function addMessage(content, isBot, extra = '') {
       ${!isBot ? `<img src="${avatar}" alt="You" class="msg-avatar" />` : ''}
     </div>
   `;
-  container.insertAdjacentHTML('beforeend', html);
-  container.scrollTop = container.scrollHeight;
-}
+      container.insertAdjacentHTML('beforeend', html);
+      container.scrollTop = container.scrollHeight;
+    }
 
-function addTyping() {
-  const container = document.getElementById('chat-messages');
-  const html = `
+    function addTyping() {
+      const container = document.getElementById('chat-messages');
+      const html = `
     <div class="message bot-msg typing-msg fade-in">
       <img src="/static/chatbot.webp" alt="Dexter" class="msg-avatar" />
       <div class="msg-bubble typing-bubble">
@@ -254,282 +265,283 @@ function addTyping() {
       </div>
     </div>
   `;
-  container.insertAdjacentHTML('beforeend', html);
-  container.scrollTop = container.scrollHeight;
-}
+      container.insertAdjacentHTML('beforeend', html);
+      container.scrollTop = container.scrollHeight;
+    }
 
-function removeTyping() {
-  const el = document.querySelector('.typing-msg');
-  if (el) el.remove();
-}
+    function removeTyping() {
+      const el = document.querySelector('.typing-msg');
+      if (el) el.remove();
+    }
 
-function sendQuick(text) {
-  document.getElementById('user-input').value = text;
-  sendMessage();
-}
+    function sendQuick(text) {
+      document.getElementById('user-input').value = text;
+      sendMessage();
+    }
 
-function sendMessage() {
-  const input = document.getElementById('user-input');
-  const text = input.value.trim();
-  if (!text) return;
-  
-  addMessage(text, false);
-  input.value = '';
-  addTyping();
-  
-  fetch('/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ message: text })
-  })
-  .then(r => r.json())
-  .then(data => {
-    setTimeout(() => {
-      removeTyping();
-      addMessage(data.response, true);
-      
-      // If intent is menu, suggest opening menu drawer
-      if (data.intent === 'menu') {
-        setTimeout(() => {
-          addMessage("Tap the 🍽️ icon in the header or the button below to browse our full interactive menu!", true,
-            '<button class="inline-action" onclick="openMenuDrawer()"><i class="fas fa-utensils"></i> Open Menu</button>');
-        }, 500);
+    function sendMessage() {
+      const input = document.getElementById('user-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      addMessage(text, false);
+      input.value = '';
+      addTyping();
+
+      fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text })
+      })
+        .then(r => r.json())
+        .then(data => {
+          setTimeout(() => {
+            removeTyping();
+            addMessage(data.response, true);
+
+            // If intent is menu, suggest opening menu drawer
+            if (data.intent === 'menu') {
+              setTimeout(() => {
+                addMessage("Tap the 🍽️ icon in the header or the button below to browse our full interactive menu!", true,
+                  '<button class="inline-action" onclick="openMenuDrawer()"><i class="fas fa-utensils"></i> Open Menu</button>');
+              }, 500);
+            }
+
+            // If intent is book_table, suggest booking form
+            if (data.intent === 'book_table') {
+              setTimeout(() => {
+                addMessage("Ready to book? Use the form below to confirm your reservation!", true,
+                  '<button class="inline-action" onclick="openBookingForm()"><i class="fas fa-calendar-check"></i> Book Now</button>');
+              }, 500);
+            }
+          }, 800);
+        })
+        .catch(() => {
+          setTimeout(() => {
+            removeTyping();
+            addMessage("Sorry, something went wrong. Please try again.", true);
+          }, 500);
+        });
+    }
+
+    // --- Voice ---
+    function setupVoice() {
+      const btn = document.getElementById('voice-btn');
+      if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        btn.style.display = 'none';
+        return;
       }
-      
-      // If intent is book_table, suggest booking form
-      if (data.intent === 'book_table') {
-        setTimeout(() => {
-          addMessage("Ready to book? Use the form below to confirm your reservation!", true,
-            '<button class="inline-action" onclick="openBookingForm()"><i class="fas fa-calendar-check"></i> Book Now</button>');
-        }, 500);
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SR();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = 'en-US';
+
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('recording')) { recognition.stop(); return; }
+        recognition.start();
+        btn.classList.add('recording');
+        document.getElementById('user-input').placeholder = 'Listening...';
+      });
+
+      recognition.onresult = e => {
+        document.getElementById('user-input').value = e.results[0][0].transcript;
+        stopRecording();
+        setTimeout(sendMessage, 300);
+      };
+      recognition.onend = stopRecording;
+      recognition.onerror = stopRecording;
+
+      function stopRecording() {
+        btn.classList.remove('recording');
+        document.getElementById('user-input').placeholder = 'Ask Dexter anything...';
       }
-    }, 800);
-  })
-  .catch(() => {
-    setTimeout(() => {
-      removeTyping();
-      addMessage("Sorry, something went wrong. Please try again.", true);
-    }, 500);
-  });
-}
+    }
 
-// --- Voice ---
-function setupVoice() {
-  const btn = document.getElementById('voice-btn');
-  if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
-    btn.style.display = 'none';
-    return;
-  }
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SR();
-  recognition.continuous = false;
-  recognition.interimResults = false;
-  recognition.lang = 'en-US';
-  
-  btn.addEventListener('click', () => {
-    if (btn.classList.contains('recording')) { recognition.stop(); return; }
-    recognition.start();
-    btn.classList.add('recording');
-    document.getElementById('user-input').placeholder = 'Listening...';
-  });
-  
-  recognition.onresult = e => {
-    document.getElementById('user-input').value = e.results[0][0].transcript;
-    stopRecording();
-    setTimeout(sendMessage, 300);
-  };
-  recognition.onend = stopRecording;
-  recognition.onerror = stopRecording;
-  
-  function stopRecording() {
-    btn.classList.remove('recording');
-    document.getElementById('user-input').placeholder = 'Ask Dexter anything...';
-  }
-}
+    // --- Menu Drawer ---
+    document.getElementById('menu-toggle-btn').addEventListener('click', openMenuDrawer);
 
-// --- Menu Drawer ---
-document.getElementById('menu-toggle-btn').addEventListener('click', openMenuDrawer);
+    function openMenuDrawer() {
+      document.getElementById('menu-drawer').classList.add('open');
+      document.getElementById('menu-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (allMenuItems.length === 0) loadMenu();
+    }
 
-function openMenuDrawer() {
-  document.getElementById('menu-drawer').classList.add('open');
-  document.getElementById('menu-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  if (allMenuItems.length === 0) loadMenu();
-}
+    function closeMenuDrawer() {
+      document.getElementById('menu-drawer').classList.remove('open');
+      document.getElementById('menu-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-function closeMenuDrawer() {
-  document.getElementById('menu-drawer').classList.remove('open');
-  document.getElementById('menu-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
+    function loadMenu() {
+      fetch('/menu')
+        .then(r => r.json())
+        .then(data => {
+          allMenuItems = data.items || [];
+          renderMenu(allMenuItems);
+        })
+        .catch(() => {
+          document.getElementById('menu-items-list').innerHTML = '<p class="menu-error">Could not load menu. Please try again.</p>';
+        });
+    }
 
-function loadMenu() {
-  fetch('/menu')
-    .then(r => r.json())
-    .then(data => {
-      allMenuItems = data.items || [];
-      renderMenu(allMenuItems);
-    })
-    .catch(() => {
-      document.getElementById('menu-items-list').innerHTML = '<p class="menu-error">Could not load menu. Please try again.</p>';
-    });
-}
+    function renderMenu(items) {
+      const container = document.getElementById('menu-items-list');
+      if (!items.length) {
+        container.innerHTML = '<p class="menu-error">No items found.</p>';
+        return;
+      }
 
-function renderMenu(items) {
-  const container = document.getElementById('menu-items-list');
-  if (!items.length) {
-    container.innerHTML = '<p class="menu-error">No items found.</p>';
-    return;
-  }
-  
-  // Group by category
-  const grouped = {};
-  items.forEach(item => {
-    if (!grouped[item.category]) grouped[item.category] = [];
-    grouped[item.category].push(item);
-  });
-  
-  let html = '';
-  const categoryIcons = {
-    'Breakfast': 'fa-sun', 'Main Course': 'fa-bowl-food', 'Snacks': 'fa-cookie-bite',
-    'Beverages': 'fa-mug-hot', 'Desserts': 'fa-ice-cream'
-  };
-  
-  for (const [cat, catItems] of Object.entries(grouped)) {
-    const icon = categoryIcons[cat] || 'fa-utensils';
-    html += `<div class="menu-category"><h3><i class="fas ${icon}"></i> ${cat}</h3></div>`;
-    catItems.forEach(item => {
-      const tags = [];
-      if (item.is_veg) tags.push('<span class="tag veg">Veg</span>');
-      if (item.is_vegan) tags.push('<span class="tag vegan">Vegan</span>');
-      if (item.is_spicy) tags.push('<span class="tag spicy">Spicy 🌶️</span>');
-      if (item.is_bestseller) tags.push('<span class="tag best">⭐ Bestseller</span>');
-      
-      html += `
+      // Group by category
+      const grouped = {};
+      items.forEach(item => {
+        if (!grouped[item.category]) grouped[item.category] = [];
+        grouped[item.category].push(item);
+      });
+
+      let html = '';
+      const categoryIcons = {
+        'Breakfast': 'fa-sun', 'Main Course': 'fa-bowl-food', 'Snacks': 'fa-cookie-bite',
+        'Beverages': 'fa-mug-hot', 'Desserts': 'fa-ice-cream'
+      };
+
+      for (const [cat, catItems] of Object.entries(grouped)) {
+        const icon = categoryIcons[cat] || 'fa-utensils';
+        html += `<div class="menu-category"><h3><i class="fas ${icon}"></i> ${cat}</h3></div>`;
+        catItems.forEach(item => {
+          const tags = [];
+          if (item.is_veg) tags.push('<span class="tag veg">Veg</span>');
+          if (item.is_vegan) tags.push('<span class="tag vegan">Vegan</span>');
+          if (item.is_spicy) tags.push('<span class="tag spicy">Spicy 🌶️</span>');
+          if (item.is_bestseller) tags.push('<span class="tag best">⭐ Bestseller</span>');
+
+          html += `
         <div class="menu-card">
           <div class="menu-card-body">
             <div class="menu-card-top">
               <h4>${item.name}</h4>
-              <span class="menu-price">$${item.price.toFixed(2)}</span>
+              <span class="menu-price">₹${item.price.toFixed(0)}</span>
             </div>
             <p class="menu-desc">${item.description || ''}</p>
             <div class="menu-tags">${tags.join('')}</div>
           </div>
         </div>
       `;
-    });
-  }
-  container.innerHTML = html;
-}
-
-function filterMenu(type, btn) {
-  document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  
-  if (type === 'all') return renderMenu(allMenuItems);
-  if (type === 'veg') return renderMenu(allMenuItems.filter(i => i.is_veg));
-  if (type === 'bestseller') return renderMenu(allMenuItems.filter(i => i.is_bestseller));
-  if (type === 'spicy') return renderMenu(allMenuItems.filter(i => i.is_spicy));
-}
-
-// --- Booking ---
-function openBookingForm() {
-  document.getElementById('booking-modal').classList.add('open');
-  document.getElementById('booking-overlay').classList.add('open');
-  document.getElementById('booking-form').style.display = '';
-  document.getElementById('booking-success').style.display = 'none';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeBookingForm() {
-  document.getElementById('booking-modal').classList.remove('open');
-  document.getElementById('booking-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function adjustParty(delta) {
-  partySize = Math.max(1, Math.min(20, partySize + delta));
-  document.getElementById('party-count').textContent = partySize;
-}
-
-function submitBooking() {
-  const name = document.getElementById('book-name').value.trim();
-  const date = document.getElementById('book-date').value;
-  const time = document.getElementById('book-time').value;
-  const special = document.getElementById('book-special').value.trim();
-  
-  if (!name || !date || !time) {
-    alert('Please fill in name, date, and time.');
-    return;
-  }
-  
-  const btn = document.getElementById('book-submit');
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spinner-sm"></div> Booking...';
-  
-  fetch('/book', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, date, time, party_size: partySize, special_requests: special })
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.status === 'success') {
-      document.getElementById('booking-form').style.display = 'none';
-      document.getElementById('booking-success').style.display = '';
-      document.getElementById('booking-details').textContent = `Party of ${partySize} on ${date} at ${time}`;
-      document.getElementById('booking-id-text').textContent = data.booking_id;
-      
-      // Add confirmation to chat
-      addMessage(`Reservation confirmed! Booking ID: ${data.booking_id}. Party of ${partySize} for ${name} on ${date} at ${time}. See you soon!`, true);
-    } else {
-      alert(data.message || 'Booking failed.');
+        });
+      }
+      container.innerHTML = html;
     }
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Reservation';
-  })
-  .catch(() => {
-    alert('Something went wrong. Please try again.');
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Reservation';
-  });
-}
 
-// --- Rating ---
-document.getElementById('rate-btn').addEventListener('click', () => {
-  document.getElementById('rating-modal').classList.add('open');
-  document.getElementById('rating-overlay').classList.add('open');
-});
+    function filterMenu(type, btn) {
+      document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-function closeRating() {
-  document.getElementById('rating-modal').classList.remove('open');
-  document.getElementById('rating-overlay').classList.remove('open');
-  currentRating = 0;
-  highlightStars(0);
-  document.getElementById('rating-feedback').value = '';
-  document.getElementById('submit-rating-btn').disabled = true;
-}
+      if (type === 'all') return renderMenu(allMenuItems);
+      if (type === 'veg') return renderMenu(allMenuItems.filter(i => i.is_veg));
+      if (type === 'bestseller') return renderMenu(allMenuItems.filter(i => i.is_bestseller));
+      if (type === 'spicy') return renderMenu(allMenuItems.filter(i => i.is_spicy));
+    }
 
-function highlightStars(n) {
-  document.querySelectorAll('.r-star').forEach((s, i) => {
-    s.innerHTML = i < n ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
-  });
-}
+    // --- Booking ---
+    function openBookingForm() {
+      document.getElementById('booking-modal').classList.add('open');
+      document.getElementById('booking-overlay').classList.add('open');
+      document.getElementById('booking-form').style.display = '';
+      document.getElementById('booking-success').style.display = 'none';
+      document.body.style.overflow = 'hidden';
+    }
 
-function submitRating() {
-  if (!currentRating) return;
-  fetch('/rate', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ rating: currentRating, feedback: document.getElementById('rating-feedback').value })
-  })
-  .then(r => r.json())
-  .then(() => {
-    addMessage(`Thanks for the ${currentRating}-star rating! Your feedback means a lot to us.`, true);
-    closeRating();
-  })
-  .catch(() => closeRating());
-}
-</script>
+    function closeBookingForm() {
+      document.getElementById('booking-modal').classList.remove('open');
+      document.getElementById('booking-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function adjustParty(delta) {
+      partySize = Math.max(1, Math.min(20, partySize + delta));
+      document.getElementById('party-count').textContent = partySize;
+    }
+
+    function submitBooking() {
+      const name = document.getElementById('book-name').value.trim();
+      const date = document.getElementById('book-date').value;
+      const time = document.getElementById('book-time').value;
+      const special = document.getElementById('book-special').value.trim();
+
+      if (!name || !date || !time) {
+        alert('Please fill in name, date, and time.');
+        return;
+      }
+
+      const btn = document.getElementById('book-submit');
+      btn.disabled = true;
+      btn.innerHTML = '<div class="spinner-sm"></div> Booking...';
+
+      fetch('/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, date, time, party_size: partySize, special_requests: special })
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (data.status === 'success') {
+            document.getElementById('booking-form').style.display = 'none';
+            document.getElementById('booking-success').style.display = '';
+            document.getElementById('booking-details').textContent = `Party of ${partySize} on ${date} at ${time}`;
+            document.getElementById('booking-id-text').textContent = data.booking_id;
+
+            // Add confirmation to chat
+            addMessage(`Reservation confirmed! Booking ID: ${data.booking_id}. Party of ${partySize} for ${name} on ${date} at ${time}. See you soon!`, true);
+          } else {
+            alert(data.message || 'Booking failed.');
+          }
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Reservation';
+        })
+        .catch(() => {
+          alert('Something went wrong. Please try again.');
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-check-circle"></i> Confirm Reservation';
+        });
+    }
+
+    // --- Rating ---
+    document.getElementById('rate-btn').addEventListener('click', () => {
+      document.getElementById('rating-modal').classList.add('open');
+      document.getElementById('rating-overlay').classList.add('open');
+    });
+
+    function closeRating() {
+      document.getElementById('rating-modal').classList.remove('open');
+      document.getElementById('rating-overlay').classList.remove('open');
+      currentRating = 0;
+      highlightStars(0);
+      document.getElementById('rating-feedback').value = '';
+      document.getElementById('submit-rating-btn').disabled = true;
+    }
+
+    function highlightStars(n) {
+      document.querySelectorAll('.r-star').forEach((s, i) => {
+        s.innerHTML = i < n ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+      });
+    }
+
+    function submitRating() {
+      if (!currentRating) return;
+      fetch('/rate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rating: currentRating, feedback: document.getElementById('rating-feedback').value })
+      })
+        .then(r => r.json())
+        .then(() => {
+          addMessage(`Thanks for the ${currentRating}-star rating! Your feedback means a lot to us.`, true);
+          closeRating();
+        })
+        .catch(() => closeRating());
+    }
+  </script>
 </body>
+
 </html>
