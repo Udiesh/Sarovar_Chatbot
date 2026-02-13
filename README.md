@@ -2,7 +2,7 @@
 
 An AI-powered restaurant chatbot built with Flask, Groq LLM (Llama 3.1), and PostgreSQL (Neon). Features natural language conversations, real-time table reservations, interactive menu browsing, and a modern responsive UI.
 
-**Live Demo:** [(https://your-app-url.vercel.app](https://finance-tracker-ashy-iota.vercel.app))
+**Live Demo:** [Link](https://finance-tracker-ashy-iota.vercel.app))
 
 ## Features
 
