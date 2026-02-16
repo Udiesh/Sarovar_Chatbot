@@ -148,16 +148,17 @@ def seed_menu(cur):
 GROQ_API_KEY = os.environ.get('GROQ_API_KEY')
 groq_client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
-SYSTEM_PROMPT = """You are Dexter, AI assistant for Sarovar South Spice restaurant.
+SYSTEM_PROMPT = """You are Dexter, AI assistant for Sarovar South Spice restaurant. You ONLY answer questions about the restaurant, food, menu, bookings, hours, location, and dining.
 
 RULES:
 1. Keep responses to 1-2 sentences MAX. Be concise.
 2. No markdown, no asterisks, no bullet points. Plain text only.
-3. Be warm but brief. No filler words or unnecessary pleasantries.
+3. Be warm but brief. No filler words.
 4. For bookings, say: use the booking form in the chat.
 5. Never invent info not listed below.
+6. If a question is NOT about the restaurant, food, or dining, respond with: "I can only help with restaurant-related queries like our menu, bookings, or hours. How can I help with those?"
 
-RESTAURANT: 123 Flavor Street, Thanjavur | 11AM-10PM daily | 040-23456789 | contact@sarovarsouthspice.com | Free parking, valet weekends | Free WiFi | Est. 2023"""
+RESTAURANT: Plot No. 256 Flavor Street, Thanjavur | 11AM-10PM daily | 040-23456789 | contact@sarovarsouthspice.com | Free parking, valet weekends | Free WiFi | Est. 2023"""
 
 def get_llm_response(message, history=None):
     if not groq_client:
@@ -247,8 +248,42 @@ def chat():
     
     intent = detect_intent(message)
     
-    # Try LLM, fallback to rules
+    # Try LLM, fallback to rulesush
     response = get_llm_response(message, session.get('history', [])) if groq_client else None
+    if not response:
+        response = get_rule_response(intent)
+    
+    # Check if user is asking about their booking
+    booking_context = ""
+    if any(w in message.lower() for w in ["my booking", "my reservation", "booking status", "booking id", "my table"]):
+        try:
+            conn = get_db()
+            cur = conn.cursor()
+            cur.execute(
+                'SELECT * FROM bookings WHERE session_id = %s ORDER BY created_at DESC LIMIT 1',
+                (session['session_id'],)
+            )
+            booking = cur.fetchone()
+            cur.close()
+            conn.close()
+            if booking:
+                booking_context = f"\n\nThis user has a booking: ID {booking['id']}, name {booking['name']}, date {booking['date']}, time {booking['time']}, party of {booking['party_size']}, status: {booking['status']}."
+            else:
+                booking_context = "\n\nThis user has no bookings yet."
+        except:
+            pass
+    
+    # Try LLM with booking context
+    response = None
+    if groq_client:
+        history = session.get('history', [])
+        if booking_context:
+            # Inject booking context into the message
+            enhanced_message = message + booking_context
+            response = get_llm_response(enhanced_message, history)
+        else:
+            response = get_llm_response(message, history)
+    
     if not response:
         response = get_rule_response(intent)
     
