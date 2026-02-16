@@ -8,12 +8,29 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from datetime import datetime
 from groq import Groq
+from collections import defaultdict
+import time
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'sarovar_south_spice_2026_secret')
 
 # --- Database Setup ---
 DATABASE_URL = os.environ.get('DATABASE_URL')
+
+# --- Rate Limiting ----#
+
+rate_limit_store = defaultdict(list)
+RATE_LIMIT = 20  # max requests per window
+RATE_WINDOW = 60  # window in seconds (1 minute)
+
+def is_rate_limited(session_id):
+    now = time.time()
+    # Clean old entries
+    rate_limit_store[session_id] = [t for t in rate_limit_store[session_id] if now - t < RATE_WINDOW]
+    if len(rate_limit_store[session_id]) >= RATE_LIMIT:
+        return True
+    rate_limit_store[session_id].append(now)
+    return False
 
 def get_db():
     conn = psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor)
@@ -223,6 +240,10 @@ def chat():
         session['session_id'] = str(uuid.uuid4())
     if 'history' not in session:
         session['history'] = []
+    
+    if is_rate_limited(session.get('session_id', '')):
+        return jsonify({'response': 'You\'re sending messages too fast. Please wait a moment.', 'intent': 'fallback'})
+    
     
     intent = detect_intent(message)
     
